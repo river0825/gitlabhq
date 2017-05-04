@@ -13,7 +13,7 @@ module Banzai
 
         doc.css('pre > code[lang="plantuml"]').each do |node|
           img_tag = Nokogiri::HTML::DocumentFragment.parse(
-            Asciidoctor::PlantUml::Processor.plantuml_content(node.content, {}))
+            Asciidoctor::PlantUml::Processor.plantuml_content(node.content, {format:"svg"}))
           node.parent.replace(img_tag)
         end
 
